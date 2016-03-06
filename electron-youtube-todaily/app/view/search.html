@@ -1,0 +1,75 @@
+<div  class="row">
+	<div class="col-md-8">
+		<div class="sidebar-form">
+			<div class="input-group">
+				<input type="text" name="q" class="form-control" placeholder="Search..." ng-model="ctrl.wordSearch"
+				ng-keypress="($event.which === 13)?ctrl.clickSearch():0"
+				/>
+				<span class="input-group-btn">
+					<button type="button"  ng-click="ctrl.clickSearch()"name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="box box-info">
+			<div class="box-header with-border">
+				<h3 class="box-title">Update Video Info</h3>
+			</div>
+			<div class="form-group box-body">
+				<label class="">Channel</label>
+				<select class="form-control" ng-model="ctrl.uploadChannel">
+					<option value="sport">Sport</option>
+					<option value="news">News</option>
+					<option value="videogames">videogames</option>
+					<option value="fun">Fun</option>
+					<option value="people">People</option>
+					<option value="tv">tv</option>
+					<option value="shortfilms">shortfilms</option>
+					<option value="lifestyle">lifestyle</option>
+					<option value="animals">animals</option>
+					<option value="music">music</option>
+					<option value="auto">cars</option>
+					<option value="auto">others</option>
+				</select>
+				<label class="">Tags</label>
+				<input class="form-control" ng-model="ctrl.allTags" ng-change="ctrl.updateVideoInfo()" placeholder=" all tags" />
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div ng-show="ctrl.ListVideo.length>0" class="btn-group pull-right" role="group">
+		<button type="button" class="btn btn-default" ng-click="ctrl.loadPrev()"> Prev</button>
+		<button  type="button" class="btn btn-default" ng-click="ctrl.loadNext()"> Next</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="video in ctrl.ListVideo">
+		<div class="info-box"  >
+			<div>
+				<img style="width: 100%; height: 200px;" ng-src="{{video.image}}" alt="{{video.title}}"/>
+			</div>
+			<div>
+				<span class="info-box-text">{{video.title}}</span>
+				<span class="info-box-text">Author : {{video.channelTitle}} 
+				<i class="ion-checkmark-circled" ng-show="video.licensedContent" style="color:red"></i></span>
+				<span class="label label-info">Date : {{video.publishedAt}}</span>
+				<span class="label label-info">Duration : {{video.duration}} minutes</span>
+				<div class="clearfix"></div>
+				<span class="label label-warning">View : {{video.numberView}}</span>
+				<span class="label label-warning">Like : {{video.numberLike}}</span>
+				<div class="clearfix"></div>
+				<br/>
+				<div >
+					<button class="btn btn-sm btn-primary" ng-click="ctrl.addToDownload(video)"> add to download</button>
+					<a href="ytView.html?id={{video.id}}" class="btn btn-sm btn-primary">View YouTube</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-show="ctrl.ListVideo.length>0" class="btn-group pull-right" role="group">
+	<button type="button" class="btn btn-default" ng-click="ctrl.loadPrev()"> Prev</button>
+	<button  type="button" class="btn btn-default" ng-click="ctrl.loadNext()"> Next</button>
+</div>

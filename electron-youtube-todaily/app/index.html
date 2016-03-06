@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="dmApp">
+  <head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="vendor/themes/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="vendor/themes/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="vendor/angular.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-route.min.js"></script>
+  </head>
+  <body  ng-controller="AppController as ctrl" class="skin-blue layout-top-nav" >
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+          YouTube to dailymotion
+          </h1>
+          <p>This app require python to download </p>
+          <ol class="breadcrumb">
+            <li><a href="#search"><i class="fa fa-book"></i> <span>List Video</span></a></li>
+            <li><a href="#download"><i class="fa fa-book"></i> <span>Video Download</span></a></li>
+            <li><a href="#upload"><i class="fa fa-book"></i> <span>Video Uploaded</span></a></li>
+
+          </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content" style="min-height: 600px">
+          <div ng-view>
+            
+          </div>
+          <!-- Info boxes -->
+        </section>
+      </div>
+      <footer class="main-footer">
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+      </footer>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

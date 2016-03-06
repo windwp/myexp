@@ -1,0 +1,74 @@
+<div class="row">
+	<div class="col-md-6">
+		<div class="row">
+			<div class="box box-info">
+				<div class="box-header with-border">
+					<h3 class="box-title">Daily Motion Login</h3>
+				</div>
+				<!-- <button ng-click="ctrl.loadUploadVideo()" class="btn btn-primary">Refresh</button> -->
+				<div class="form-group box-body">
+					<label class="">Username :</label>
+					<input class="form-control" ng-model='ctrl.username' />
+					<label class="">Password :</label>
+					<input class="form-control" ng-model='ctrl.password' type="password" />
+					<button type="button" class="btn btn-default" ng-click="ctrl.loginDM()">Login</button>
+					<button type="button" class="btn btn-default" ng-click="ctrl.saveFile()">Save</button>
+				</div>
+			</div>
+		</div>
+<!-- 		<div class="row">
+			<div class="box box-info">
+				<div class="box-header with-border">
+					<h3 class="box-title">Upload Information</h3>
+				</div>
+				<div class="form-group box-body">
+					<label>Max Upload Connection:</label>
+					<input ng-model="ctrl.maxUploadConnection"  ng-change="ctrl.updateVideoInfo()" class="form-control"/>
+				</div>
+			</div>
+		</div> -->
+	</div>
+	<div class="col-md-6">
+		<div class="box box-info">
+			<div class="box-header with-border">
+				<h3 class="box-title">List Upload</h3>
+				</div><!-- /.box-header -->
+				<div class="box-body">
+					<table class="table table-bordered">
+						<tbody><tr>
+							<th style="width: 10px">#</th>
+							<th style="width: 200px">Title</th>
+							<th>Command</th>
+							<th style="width: 200px">Progress</th>
+							<th style="width: 40px">Percent</th>
+							<th style="width: 40px"></th>
+							<th style="width: 40px"></th>
+						</tr>
+						<tr ng-repeat="video in ctrl.ListUploadVideo">
+							<td>{{video.id}}</td>
+							<td>{{video.title}}</td>
+							<td>
+								<input ng-model="video.uploadChannel" placeholder="Channel"></input>
+								<input ng-model="video.tags" placeholder="tags" />
+								<button ng-click="ctrl.saveTag(video)">Save</button>
+							</td>
+							<td>
+								<div class="progress progress-xs">
+									<div class="progress-bar progress-bar-danger" style="width:{{video.percent}}%"></div>
+								</div>
+							</td>
+							<td><span class="badge bg-red">{{video.percent}}%</span></td>
+							<td>
+								<button ng-click="ctrl.upload(video)"> Upload</button>
+								
+							</td>
+							<td>
+								<button ng-click="ctrl.removeVideo(video)"> Remove</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
