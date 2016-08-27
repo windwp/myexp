@@ -49,11 +49,11 @@ namespace autokey
                     //do form work
                     try
                     {
-                        if (formData.LastMouseClick  < UnixTimeNow())
+                        if (formData.LastMouseClick < UnixTimeNow())
                         {
-                            formData.LastMouseClick = UnixTimeNow()+formData.TimeMouseClick;
+                            formData.LastMouseClick = UnixTimeNow() + formData.TimeMouseClick;
                             formData.MoveMouse();
-                            Thread.Sleep(1000);
+                            Thread.Sleep(500);
                         }
                         else
                         {
@@ -168,13 +168,13 @@ namespace autokey
                 _currentIndexOfMouse += 1;
                 if (IsSendBackKey)
                 {
-                    Thread.Sleep(100);
+                    Thread.Sleep(600);
                     SendKeys.SendWait("%{SUBTRACT}"); //back to location in sublime
                 }
             }
             else
             {
-                //                SendKeyBoard();
+//                 SendKeyBoard();
             }
         }
 
@@ -187,7 +187,7 @@ namespace autokey
             if (_currentIndexOfMouse < TextKeyboard.Length && TextKeyboard.Length > 0)
             {
                 var character = TextKeyboard.Substring(_currentIndexOfCharacter, 1);
-                //            MWin.KeyDownAndUp(Pid, VirtualKeyStates.VK_OEM_COMMA);
+//                MWin.KeyDownAndUp(Pid, VirtualKeyStates.VK_OEM_COMMA);
                 _currentIndexOfCharacter += 1;
                 string txt = Regex.Replace(character, @"[+^%~(){}]", "{$0}");
                 SendKeys.SendWait(txt);

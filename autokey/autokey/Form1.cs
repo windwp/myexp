@@ -21,7 +21,6 @@ namespace autokey
         AutoFormData form2Data;
         private AutoWork _work;
         private Y2KeyboardHook _keyhook;
-
         public Form1()
         {
             InitializeComponent();
@@ -93,9 +92,10 @@ namespace autokey
                 //Get whatever attribute for process
                 if (!string.IsNullOrEmpty(process.MainWindowTitle))
                 {
-
-                    comboBox1.Items.Add(process.MainWindowTitle);
-                    comboBox2.Items.Add(process.MainWindowTitle);
+                    comboBox1.DisplayMember = "MainWindowTitle";
+                    comboBox2.DisplayMember = "MainWindowTitle";
+                    comboBox1.Items.Add(process);
+                    comboBox2.Items.Add(process);
                 }
 
             }
@@ -122,29 +122,37 @@ namespace autokey
             form1Data.Title = nameForm1_tbx.Text;
             form1Data.TextKeyboard = textForm1_tbx.Text.Trim();
             form1Data.MouseData = form1MousePos_tbx.Text.Trim();
-            form1Data.Pid = MWin.FindWindow(null, form1Data.Title);
-            form1Data.TimeRun = Convert.ToInt32(form1TimeRun_tbx.Text);
-            form1Data.TimeMouseClick = Convert.ToInt32(form1TimeMouseClick_tbx.Text);
-            form1Data.TimeWait = Convert.ToInt32(form1TimeWait_tbx.Text);
-            form1Data.IsSendBackKey = form1_cbx.Checked;
-            //            if (form1Data.Pid == IntPtr.Zero)
-            //            {
-            //                MessageBox.Show("Form 1 not valid");
-            //            }
+            var process = comboBox1.SelectedItem as Process;
+            if (process != null)
+            {
+                form1Data.Pid = process.MainWindowHandle;
+                form1Data.TimeRun = Convert.ToInt32(form1TimeRun_tbx.Text);
+                form1Data.TimeMouseClick = Convert.ToInt32(form1TimeMouseClick_tbx.Text);
+                form1Data.TimeWait = Convert.ToInt32(form1TimeWait_tbx.Text);
+                form1Data.IsSendBackKey = form1_cbx.Checked;
+            }
+            //if (form1Data.Pid == IntPtr.Zero)
+            //{
+            //    MessageBox.Show("Form 1 not valid");
+            //}
             form2Data = new AutoFormData();
             form2Data.Title = nameForm2_tbx.Text;
             form2Data.TextKeyboard = textForm2_tbx.Text;
             form2Data.MouseData = form2MousePos_tbx.Text;
-            form2Data.Pid = MWin.FindWindow(null, form2Data.Title);
-            form2Data.TimeRun = Convert.ToInt32(form2TimeRun_tbx.Text) ;
-            form2Data.TimeMouseClick = Convert.ToInt32(form2TimeMouseClick_tbx.Text);
-            form2Data.TimeWait = Convert.ToInt32(form2TimeWait_tbx.Text);
-            form2Data.IsSendBackKey = form2_cbx.Checked;
-            //            if (form2Data.Pid == IntPtr.Zero)
-            //            {
-            //                MessageBox.Show("Form 2 not valid");
-            //                return;
-            //            }
+            process = comboBox2.SelectedItem as Process;
+            if (process != null)
+            {
+                form2Data.Pid = process.MainWindowHandle;
+                form2Data.TimeRun = Convert.ToInt32(form2TimeRun_tbx.Text);
+                form2Data.TimeMouseClick = Convert.ToInt32(form2TimeMouseClick_tbx.Text);
+                form2Data.TimeWait = Convert.ToInt32(form2TimeWait_tbx.Text);
+                form2Data.IsSendBackKey = form2_cbx.Checked;
+            }
+            //if (form2Data.Pid == IntPtr.Zero)
+            //{
+            //    MessageBox.Show("Form 2 not valid");
+            //    return;
+            //}
         }
 
         private void TestFocus1_btn_Click(object sender, EventArgs e)

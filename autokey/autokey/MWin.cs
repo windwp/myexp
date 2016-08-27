@@ -220,6 +220,12 @@ static extern bool ShowWindow(IntPtr hWnd, ShowWindowCommands nCmdShow);
 
         }
 
+        private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+        private const int MOUSEEVENTF_LEFTUP = 0x04;
+        private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
+        private const int MOUSEEVENTF_RIGHTUP = 0x10;
+
+
         public static void ClickPosition(IntPtr hWnd, int posX, int posY)
         {
             //SendMessage(hWnd, BM_CLICK, (IntPtr)posX ,(IntPtr) posY);
@@ -234,14 +240,15 @@ static extern bool ShowWindow(IntPtr hWnd, ShowWindowCommands nCmdShow);
             ////SendMessage(hWnd, WM_MOUSEACTIVATE, hWnd, lParam);
             //SendMessage(hWnd, WM_SETFOCUS, IntPtr.Zero, IntPtr.Zero);
             SendMessage(hWnd, WM_MOUSEMOVE, IntPtr.Zero, lParam);
+            Thread.Sleep(20);
             SendMessage(hWnd, WM_LBUTTONDOWN, (IntPtr)MK_LBUTTON, lParam);
             SendMessage(hWnd, WM_LBUTTONUP, (IntPtr)MK_LBUTTON, lParam);
             //mouse_event(MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE, posX, posY, 0, 0);
             //mouse_event(MOUSEEVENTF_LEFTDOWN, posX, posY, 0, 0);
-            // mouse_event(MOUSEEVENTF_LEFTUP, posX, posY, 0, 0);
+            //mouse_event(MOUSEEVENTF_LEFTUP, posX, posY, 0, 0);
 
             //mouse_event(MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE, posX, posY, 0, 0);
-            //mouse_event(MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, posX, posY, 0, 0);
+            //mouse_event( MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, posX, posY, 0, 0);
         }
 
 
