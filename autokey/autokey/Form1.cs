@@ -85,6 +85,8 @@ namespace autokey
             form1Data = null;
             form2Data = null;
             Process[] processes = Process.GetProcesses();
+            var selectedItem1 = comboBox1.SelectedItem;
+            var selectedItem2 = comboBox2.SelectedItem;
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
             foreach (Process process in processes)
@@ -96,6 +98,14 @@ namespace autokey
                     comboBox2.DisplayMember = "MainWindowTitle";
                     comboBox1.Items.Add(process);
                     comboBox2.Items.Add(process);
+                    if (selectedItem1 != null && ((Process)selectedItem1).MainWindowHandle == process.MainWindowHandle)
+                    {
+                        comboBox1.SelectedItem = process;
+                    }
+                    if (selectedItem2 != null && ((Process)selectedItem2).MainWindowHandle == process.MainWindowHandle)
+                    {
+                        comboBox2.SelectedItem = process;
+                    }
                 }
 
             }
@@ -106,6 +116,16 @@ namespace autokey
         private void start_btn_Click(object sender, EventArgs e)
         {
             Init();
+            if (form1Data.Pid == IntPtr.Zero)
+            {
+                MessageBox.Show("Form 1 not valid");
+                return;
+            }
+            if (form2Data.Pid == IntPtr.Zero)
+            {
+                MessageBox.Show("Form 2 not valid");
+                return;
+            }
             if (_work != null && _work.IsRun)
             {
                 _work.Stop();
@@ -131,10 +151,7 @@ namespace autokey
                 form1Data.TimeWait = Convert.ToInt32(form1TimeWait_tbx.Text);
                 form1Data.IsSendBackKey = form1_cbx.Checked;
             }
-            //if (form1Data.Pid == IntPtr.Zero)
-            //{
-            //    MessageBox.Show("Form 1 not valid");
-            //}
+
             form2Data = new AutoFormData();
             form2Data.Title = nameForm2_tbx.Text;
             form2Data.TextKeyboard = textForm2_tbx.Text;
@@ -148,11 +165,7 @@ namespace autokey
                 form2Data.TimeWait = Convert.ToInt32(form2TimeWait_tbx.Text);
                 form2Data.IsSendBackKey = form2_cbx.Checked;
             }
-            //if (form2Data.Pid == IntPtr.Zero)
-            //{
-            //    MessageBox.Show("Form 2 not valid");
-            //    return;
-            //}
+
         }
 
         private void TestFocus1_btn_Click(object sender, EventArgs e)

@@ -30,12 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.form1_cbx = new System.Windows.Forms.CheckBox();
+            this.form1TimeMouseClick_tbx = new System.Windows.Forms.TextBox();
             this.form1TimeWait_tbx = new System.Windows.Forms.TextBox();
             this.form1TimeRun_tbx = new System.Windows.Forms.TextBox();
             this.form1MousePos_tbx = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textForm1_tbx = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,6 +46,8 @@
             this.nameForm1_tbx = new System.Windows.Forms.TextBox();
             this.start_btn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.form2_cbx = new System.Windows.Forms.CheckBox();
+            this.form2TimeMouseClick_tbx = new System.Windows.Forms.TextBox();
             this.form2TimeWait_tbx = new System.Windows.Forms.TextBox();
             this.form2TimeRun_tbx = new System.Windows.Forms.TextBox();
             this.form2MousePos_tbx = new System.Windows.Forms.TextBox();
@@ -50,6 +55,7 @@
             this.textForm2_tbx = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -60,16 +66,9 @@
             this.TestMouseMove_btn = new System.Windows.Forms.Button();
             this.TestFocus2_btn = new System.Windows.Forms.Button();
             this.stop_btn = new System.Windows.Forms.Button();
-            this.refresh_btn = new System.Windows.Forms.Button();
             this.log_rbtx = new System.Windows.Forms.RichTextBox();
             this.totalTime_tbx = new System.Windows.Forms.TextBox();
             this.totalTime_lb = new System.Windows.Forms.Label();
-            this.form1_cbx = new System.Windows.Forms.CheckBox();
-            this.form2_cbx = new System.Windows.Forms.CheckBox();
-            this.form1TimeMouseClick_tbx = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.form2TimeMouseClick_tbx = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -95,6 +94,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(358, 545);
             this.panel1.TabIndex = 0;
+            // 
+            // form1_cbx
+            // 
+            this.form1_cbx.AutoSize = true;
+            this.form1_cbx.Location = new System.Drawing.Point(106, 71);
+            this.form1_cbx.Name = "form1_cbx";
+            this.form1_cbx.Size = new System.Drawing.Size(179, 17);
+            this.form1_cbx.TabIndex = 6;
+            this.form1_cbx.Text = "send back key after mouse click";
+            this.form1_cbx.UseVisualStyleBackColor = true;
+            // 
+            // form1TimeMouseClick_tbx
+            // 
+            this.form1TimeMouseClick_tbx.Location = new System.Drawing.Point(273, 169);
+            this.form1TimeMouseClick_tbx.Name = "form1TimeMouseClick_tbx";
+            this.form1TimeMouseClick_tbx.Size = new System.Drawing.Size(67, 20);
+            this.form1TimeMouseClick_tbx.TabIndex = 5;
+            this.form1TimeMouseClick_tbx.Text = "5";
             // 
             // form1TimeWait_tbx
             // 
@@ -126,6 +143,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(237, 21);
             this.comboBox1.TabIndex = 4;
+            this.comboBox1.DropDown += new System.EventHandler(this.refresh_btn_Click);
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textForm1_tbx
@@ -145,6 +163,15 @@
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Form1TextKey";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(169, 176);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(96, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "TimeMouseClick(s)";
             // 
             // label8
             // 
@@ -221,6 +248,24 @@
             this.panel2.Size = new System.Drawing.Size(381, 545);
             this.panel2.TabIndex = 0;
             // 
+            // form2_cbx
+            // 
+            this.form2_cbx.AutoSize = true;
+            this.form2_cbx.Location = new System.Drawing.Point(103, 72);
+            this.form2_cbx.Name = "form2_cbx";
+            this.form2_cbx.Size = new System.Drawing.Size(179, 17);
+            this.form2_cbx.TabIndex = 6;
+            this.form2_cbx.Text = "send back key after mouse click";
+            this.form2_cbx.UseVisualStyleBackColor = true;
+            // 
+            // form2TimeMouseClick_tbx
+            // 
+            this.form2TimeMouseClick_tbx.Location = new System.Drawing.Point(273, 169);
+            this.form2TimeMouseClick_tbx.Name = "form2TimeMouseClick_tbx";
+            this.form2TimeMouseClick_tbx.Size = new System.Drawing.Size(67, 20);
+            this.form2TimeMouseClick_tbx.TabIndex = 5;
+            this.form2TimeMouseClick_tbx.Text = "120";
+            // 
             // form2TimeWait_tbx
             // 
             this.form2TimeWait_tbx.Location = new System.Drawing.Point(273, 146);
@@ -251,6 +296,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(237, 21);
             this.comboBox2.TabIndex = 4;
+            this.comboBox2.DropDown += new System.EventHandler(this.refresh_btn_Click);
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textForm2_tbx
@@ -279,6 +325,15 @@
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Form2MousePos";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(167, 176);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "TimeMouseClick(s)";
             // 
             // label10
             // 
@@ -316,7 +371,7 @@
             // 
             // TestFocus1_btn
             // 
-            this.TestFocus1_btn.Location = new System.Drawing.Point(6, 29);
+            this.TestFocus1_btn.Location = new System.Drawing.Point(15, 71);
             this.TestFocus1_btn.Name = "TestFocus1_btn";
             this.TestFocus1_btn.Size = new System.Drawing.Size(75, 23);
             this.TestFocus1_btn.TabIndex = 1;
@@ -339,7 +394,7 @@
             // 
             // TestSendKey_btn
             // 
-            this.TestSendKey_btn.Location = new System.Drawing.Point(231, 29);
+            this.TestSendKey_btn.Location = new System.Drawing.Point(149, 29);
             this.TestSendKey_btn.Name = "TestSendKey_btn";
             this.TestSendKey_btn.Size = new System.Drawing.Size(106, 23);
             this.TestSendKey_btn.TabIndex = 1;
@@ -349,7 +404,7 @@
             // 
             // TestMouseMove_btn
             // 
-            this.TestMouseMove_btn.Location = new System.Drawing.Point(99, 29);
+            this.TestMouseMove_btn.Location = new System.Drawing.Point(15, 29);
             this.TestMouseMove_btn.Name = "TestMouseMove_btn";
             this.TestMouseMove_btn.Size = new System.Drawing.Size(126, 23);
             this.TestMouseMove_btn.TabIndex = 1;
@@ -359,7 +414,7 @@
             // 
             // TestFocus2_btn
             // 
-            this.TestFocus2_btn.Location = new System.Drawing.Point(6, 71);
+            this.TestFocus2_btn.Location = new System.Drawing.Point(96, 71);
             this.TestFocus2_btn.Name = "TestFocus2_btn";
             this.TestFocus2_btn.Size = new System.Drawing.Size(75, 23);
             this.TestFocus2_btn.TabIndex = 1;
@@ -377,16 +432,6 @@
             this.stop_btn.UseVisualStyleBackColor = true;
             this.stop_btn.Click += new System.EventHandler(this.stop_btn_Click);
             // 
-            // refresh_btn
-            // 
-            this.refresh_btn.Location = new System.Drawing.Point(26, 82);
-            this.refresh_btn.Name = "refresh_btn";
-            this.refresh_btn.Size = new System.Drawing.Size(75, 23);
-            this.refresh_btn.TabIndex = 1;
-            this.refresh_btn.Text = "Refresh";
-            this.refresh_btn.UseVisualStyleBackColor = true;
-            this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
-            // 
             // log_rbtx
             // 
             this.log_rbtx.Dock = System.Windows.Forms.DockStyle.Right;
@@ -398,7 +443,7 @@
             // 
             // totalTime_tbx
             // 
-            this.totalTime_tbx.Location = new System.Drawing.Point(303, 38);
+            this.totalTime_tbx.Location = new System.Drawing.Point(266, 38);
             this.totalTime_tbx.Name = "totalTime_tbx";
             this.totalTime_tbx.Size = new System.Drawing.Size(67, 20);
             this.totalTime_tbx.TabIndex = 5;
@@ -407,65 +452,11 @@
             // totalTime_lb
             // 
             this.totalTime_lb.AutoSize = true;
-            this.totalTime_lb.Location = new System.Drawing.Point(229, 41);
+            this.totalTime_lb.Location = new System.Drawing.Point(201, 35);
             this.totalTime_lb.Name = "totalTime_lb";
             this.totalTime_lb.Size = new System.Drawing.Size(50, 13);
             this.totalTime_lb.TabIndex = 2;
             this.totalTime_lb.Text = "totalTime";
-            // 
-            // form1_cbx
-            // 
-            this.form1_cbx.AutoSize = true;
-            this.form1_cbx.Location = new System.Drawing.Point(106, 71);
-            this.form1_cbx.Name = "form1_cbx";
-            this.form1_cbx.Size = new System.Drawing.Size(179, 17);
-            this.form1_cbx.TabIndex = 6;
-            this.form1_cbx.Text = "send back key after mouse click";
-            this.form1_cbx.UseVisualStyleBackColor = true;
-            // 
-            // form2_cbx
-            // 
-            this.form2_cbx.AutoSize = true;
-            this.form2_cbx.Location = new System.Drawing.Point(103, 72);
-            this.form2_cbx.Name = "form2_cbx";
-            this.form2_cbx.Size = new System.Drawing.Size(179, 17);
-            this.form2_cbx.TabIndex = 6;
-            this.form2_cbx.Text = "send back key after mouse click";
-            this.form2_cbx.UseVisualStyleBackColor = true;
-            // 
-            // form1TimeMouseClick_tbx
-            // 
-            this.form1TimeMouseClick_tbx.Location = new System.Drawing.Point(273, 169);
-            this.form1TimeMouseClick_tbx.Name = "form1TimeMouseClick_tbx";
-            this.form1TimeMouseClick_tbx.Size = new System.Drawing.Size(67, 20);
-            this.form1TimeMouseClick_tbx.TabIndex = 5;
-            this.form1TimeMouseClick_tbx.Text = "5";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(169, 176);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(96, 13);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "TimeMouseClick(s)";
-            // 
-            // form2TimeMouseClick_tbx
-            // 
-            this.form2TimeMouseClick_tbx.Location = new System.Drawing.Point(273, 169);
-            this.form2TimeMouseClick_tbx.Name = "form2TimeMouseClick_tbx";
-            this.form2TimeMouseClick_tbx.Size = new System.Drawing.Size(67, 20);
-            this.form2TimeMouseClick_tbx.TabIndex = 5;
-            this.form2TimeMouseClick_tbx.Text = "120";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(167, 176);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "TimeMouseClick(s)";
             // 
             // Form1
             // 
@@ -475,7 +466,6 @@
             this.Controls.Add(this.log_rbtx);
             this.Controls.Add(this.totalTime_tbx);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.refresh_btn);
             this.Controls.Add(this.stop_btn);
             this.Controls.Add(this.start_btn);
             this.Controls.Add(this.panel2);
@@ -529,7 +519,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button stop_btn;
-        private System.Windows.Forms.Button refresh_btn;
         private System.Windows.Forms.RichTextBox log_rbtx;
         private System.Windows.Forms.TextBox totalTime_tbx;
         private System.Windows.Forms.Label totalTime_lb;
