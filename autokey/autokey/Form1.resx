@@ -117,46 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textForm1_tbx.Text" xml:space="preserve">
-    <value>import {Component, Input} from "@angular/core";
-import {LocalService} from "../services/localService";
-import {PmToolBeltPage} from "../pages/pmPage";
-import {NavController} from "ionic-angular/index";
-import {CapitalizePipe} from "../pipes/capitalizePipe";
-@Component({
-    selector: 'pm-user-title',
-    templateUrl: 'build/components/usertitle.html',
-    pipes: [CapitalizePipe]
-}
-)
-export class UserTitle extends PmToolBeltPage {
-    username: string;
-    color: string;
-    @Input() title: string;
-
-    constructor(local: LocalService, tabNav: NavController) {
-        super(tabNav, local);
-        if (this.local.isLogin) {
-            this.username = local.contact.displayName;
-            this.color = this.local.isOnline ? 'green' : 'red';
-        }
-        this.local.networkChange.subscribe((network) =&gt; {
-            this.color = network ? 'green' : 'red';
-        })
-    }
-
-    displayCurrentPage() {
-        if (this.local.tabPageRef) {
-            this.local.tabPageRef.select(1);
-        }
-    }
-
-    displayTimePage() {
-        if (this.local.tabPageRef) {
-            this.local.tabPageRef.select(3);
-        }
-    }
-}
-</value>
-  </data>
 </root>

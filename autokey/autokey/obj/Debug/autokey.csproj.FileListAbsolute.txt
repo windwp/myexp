@@ -1,0 +1,13 @@
+F:\workspace\test\myexp\autokey\autokey\bin\Debug\autokey.exe.config
+F:\workspace\test\myexp\autokey\autokey\bin\Debug\autokey.exe
+F:\workspace\test\myexp\autokey\autokey\bin\Debug\autokey.pdb
+F:\workspace\test\myexp\autokey\autokey\bin\Debug\ManagedWinapi.dll
+F:\workspace\test\myexp\autokey\autokey\obj\Debug\autokey.Form1.resources
+F:\workspace\test\myexp\autokey\autokey\obj\Debug\autokey.Properties.Resources.resources
+F:\workspace\test\myexp\autokey\autokey\obj\Debug\autokey.csproj.GenerateResource.Cache
+F:\workspace\test\myexp\autokey\autokey\obj\Debug\autokey.exe
+F:\workspace\test\myexp\autokey\autokey\obj\Debug\autokey.pdb
+F:\workspace\test\myexp\autokey\autokey\obj\Debug\autokey.AutoFormControl.resources
+F:\workspace\test\myexp\autokey\autokey\bin\Debug\ServiceStack.Text.dll
+F:\workspace\test\myexp\autokey\autokey\bin\Debug\ServiceStack.Text.xml
+F:\workspace\test\myexp\autokey\autokey\obj\Debug\autokey.csprojResolveAssemblyReference.cache

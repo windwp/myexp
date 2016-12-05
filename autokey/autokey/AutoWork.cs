@@ -14,14 +14,14 @@ namespace autokey
 {
     internal class AutoWork : AbstractWork
     {
-        private readonly AutoFormData[] _formList;
+        private readonly AutoFormData[] _formDatas;
         private readonly int _totalSeconds;
         private long _startTime;
         private Random _random;
 
-        public AutoWork(AutoFormData[] formList, int totalMiuntes)
+        public AutoWork(AutoFormData[] formDatas, int totalMiuntes)
         {
-            _formList = formList;
+            _formDatas = formDatas;
             _totalSeconds = totalMiuntes * 60;
             _random = new Random();
         }
@@ -33,17 +33,18 @@ namespace autokey
             var index = 0;
             while (IsLoop)
             {
-                if (index >= _formList.Length) index = 0;
-                var formData = _formList[index];
+                if (index >= _formDatas.Length) index = 0;
+                var formData = _formDatas[index];
                 if (formData.IsRun)
                 {
                     //stop form and move to next form
                     if (formData.EndTime < UnixTimeNow())
                     {
                         formData.IsRun = false;
-                        formData.StartTime = UnixTimeNow() + formData.TimeWait;
-                        LogInfo("End Form" + formData.Title);
                         index += 1;
+                        if (index >= _formDatas.Length) index = 0;
+                        formData.StartTime = UnixTimeNow() + _formDatas[index].TimeRun;
+                        LogInfo("End Form" + formData.Title);
                         Thread.Sleep(3000);
                     }
                     //do form work
@@ -75,7 +76,7 @@ namespace autokey
                         formData.EndTime = UnixTimeNow() + formData.TimeRun;
                         formData.IsRun = true;
                         MWin.ShowWindow(formData.Pid);
-                        LogInfo(" Run Form" + formData.Title);
+                        LogInfo("Run Form" + formData.Title);
                         Thread.Sleep(3000);
                     }
                     else
@@ -101,7 +102,7 @@ namespace autokey
         }
     }
 
-    internal class AutoFormData
+    public class AutoFormData
     {
         public AutoFormData()
         {
@@ -141,8 +142,9 @@ namespace autokey
 
         public long TimeRun { get; set; }
         public long TimeMouseClick { get; set; }
-        public long TimeWait { get; set; }
+        //        public long TimeWait { get; set; }
         public bool IsRun { get; set; }
+        public bool IsEnable { get; set; }
         public bool IsSendBackKey { get; set; }
 
         public int CurrentIndexOfCharacter
@@ -174,7 +176,7 @@ namespace autokey
             }
             else
             {
-//                 SendKeyBoard();
+                //                 SendKeyBoard();
             }
         }
 
@@ -187,7 +189,7 @@ namespace autokey
             if (_currentIndexOfMouse < TextKeyboard.Length && TextKeyboard.Length > 0)
             {
                 var character = TextKeyboard.Substring(_currentIndexOfCharacter, 1);
-//                MWin.KeyDownAndUp(Pid, VirtualKeyStates.VK_OEM_COMMA);
+                //                MWin.KeyDownAndUp(Pid, VirtualKeyStates.VK_OEM_COMMA);
                 _currentIndexOfCharacter += 1;
                 string txt = Regex.Replace(character, @"[+^%~(){}]", "{$0}");
                 SendKeys.SendWait(txt);

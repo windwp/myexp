@@ -41,5 +41,11 @@
     <Setting Name="TotalTime" Type="System.String" Scope="User">
       <Value Profile="(Default)">120</Value>
     </Setting>
+    <Setting Name="NumberForm" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="FormJsonData" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

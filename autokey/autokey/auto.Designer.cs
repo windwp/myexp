@@ -178,5 +178,29 @@ namespace autokey {
                 this["TotalTime"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int NumberForm {
+            get {
+                return ((int)(this["NumberForm"]));
+            }
+            set {
+                this["NumberForm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FormJsonData {
+            get {
+                return ((string)(this["FormJsonData"]));
+            }
+            set {
+                this["FormJsonData"] = value;
+            }
+        }
     }
 }
