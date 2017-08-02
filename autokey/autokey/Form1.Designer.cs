@@ -37,7 +37,12 @@
             this.totalTime_tbx = new System.Windows.Forms.TextBox();
             this.log_rbtx = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.key_back_tbx = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // start_btn
@@ -52,6 +57,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.key_back_tbx);
             this.groupBox1.Controls.Add(this.start_btn);
             this.groupBox1.Controls.Add(this.stop_btn);
             this.groupBox1.Controls.Add(this.label13);
@@ -63,7 +70,7 @@
             this.groupBox1.Size = new System.Drawing.Size(400, 129);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Config";
             // 
             // stop_btn
             // 
@@ -112,9 +119,11 @@
             // 
             // log_rbtx
             // 
-            this.log_rbtx.Location = new System.Drawing.Point(418, 12);
+            this.log_rbtx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.log_rbtx.Location = new System.Drawing.Point(379, 18);
             this.log_rbtx.Name = "log_rbtx";
-            this.log_rbtx.Size = new System.Drawing.Size(809, 129);
+            this.log_rbtx.Size = new System.Drawing.Size(424, 111);
             this.log_rbtx.TabIndex = 8;
             this.log_rbtx.Text = "";
             // 
@@ -129,13 +138,51 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1227, 579);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.log_rbtx);
+            this.groupBox2.Location = new System.Drawing.Point(418, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(809, 129);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Help";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(228, 39);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "*F3 for stop running\r\n*F10 for choose mouse position\r\n  (focus on FormMousePos fi" +
+    "rst then press F10)\r\n";
+            // 
+            // key_back_tbx
+            // 
+            this.key_back_tbx.Location = new System.Drawing.Point(217, 91);
+            this.key_back_tbx.Name = "key_back_tbx";
+            this.key_back_tbx.Size = new System.Drawing.Size(126, 20);
+            this.key_back_tbx.TabIndex = 8;
+            this.key_back_tbx.Text = "%{SUBTRACT}";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Key back to previous location in editor";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1227, 726);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.log_rbtx);
             this.Controls.Add(this.groupBox1);
             this.KeyPreview = true;
             this.Name = "Form1";
@@ -144,6 +191,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -158,6 +207,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RichTextBox log_rbtx;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox key_back_tbx;
+        private System.Windows.Forms.Label label2;
     }
 }
 

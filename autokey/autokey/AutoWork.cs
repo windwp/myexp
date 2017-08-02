@@ -112,7 +112,7 @@ namespace autokey
         public IntPtr Pid { get; set; }
         public string Title { get; set; }
         public string TextKeyboard { get; set; }
-
+        public string KeyBackToPreviousLocation { get; set; }
         public string MouseData
         {
             get { return _mouseData; }
@@ -171,12 +171,13 @@ namespace autokey
                 if (IsSendBackKey)
                 {
                     Thread.Sleep(600);
-                    SendKeys.SendWait("%{SUBTRACT}"); //back to location in sublime
+//                    https://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys(v=vs.110).aspx
+                    SendKeys.SendWait(KeyBackToPreviousLocation);
                 }
             }
             else
             {
-                //                 SendKeyBoard();
+//                SendKeyBoard();
             }
         }
 
@@ -189,7 +190,7 @@ namespace autokey
             if (_currentIndexOfMouse < TextKeyboard.Length && TextKeyboard.Length > 0)
             {
                 var character = TextKeyboard.Substring(_currentIndexOfCharacter, 1);
-                //                MWin.KeyDownAndUp(Pid, VirtualKeyStates.VK_OEM_COMMA);
+//                MWin.KeyDownAndUp(Pid, VirtualKeyStates.VK_OEM_COMMA);
                 _currentIndexOfCharacter += 1;
                 string txt = Regex.Replace(character, @"[+^%~(){}]", "{$0}");
                 SendKeys.SendWait(txt);

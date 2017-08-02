@@ -93,6 +93,7 @@ namespace autokey
             timeRun_tbx.Enabled = isEnable.Checked;
             timeMouseClick_tbx.Enabled = isEnable.Checked;
             form1_cbx.Enabled = isEnable.Checked;
+            comboBox.Enabled = isEnable.Checked;
         }
 
         private void mousePos_tbx_KeyDown(object sender, KeyEventArgs e)

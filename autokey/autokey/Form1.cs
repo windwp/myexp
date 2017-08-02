@@ -83,6 +83,7 @@ namespace autokey
             InitFormData();
             foreach (var autoFormData in this._formDatas)
             {
+                autoFormData.KeyBackToPreviousLocation = string.IsNullOrEmpty(key_back_tbx.Text) ? "%{SUBTRACT}" : key_back_tbx.Text;
                 if (autoFormData.Title.Length > 4 && autoFormData.Pid == IntPtr.Zero)
                 {
                     MessageBox.Show("Form :" + autoFormData.Title + " is not valid");
@@ -105,14 +106,14 @@ namespace autokey
 
         }
 
-    
-       
 
-      
+
+
+
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void stop_btn_Click(object sender, EventArgs e)
