@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace autokey {
+namespace EdgeTool {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
     internal sealed partial class auto : global::System.Configuration.ApplicationSettingsBase {
         
         private static auto defaultInstance = ((auto)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new auto())));
@@ -20,150 +20,6 @@ namespace autokey {
         public static auto Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string form1Key {
-            get {
-                return ((string)(this["form1Key"]));
-            }
-            set {
-                this["form1Key"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string form2Key {
-            get {
-                return ((string)(this["form2Key"]));
-            }
-            set {
-                this["form2Key"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string form1Mouse {
-            get {
-                return ((string)(this["form1Mouse"]));
-            }
-            set {
-                this["form1Mouse"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string form2Mouse {
-            get {
-                return ((string)(this["form2Mouse"]));
-            }
-            set {
-                this["form2Mouse"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
-        public string form1TimeRun {
-            get {
-                return ((string)(this["form1TimeRun"]));
-            }
-            set {
-                this["form1TimeRun"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("360")]
-        public string form2TimeRun {
-            get {
-                return ((string)(this["form2TimeRun"]));
-            }
-            set {
-                this["form2TimeRun"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("360")]
-        public string form1TimeWait {
-            get {
-                return ((string)(this["form1TimeWait"]));
-            }
-            set {
-                this["form1TimeWait"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
-        public string form2TimeWait {
-            get {
-                return ((string)(this["form2TimeWait"]));
-            }
-            set {
-                this["form2TimeWait"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public string form1TimeMouseClick {
-            get {
-                return ((string)(this["form1TimeMouseClick"]));
-            }
-            set {
-                this["form1TimeMouseClick"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("120")]
-        public string form2TimeMouseClick {
-            get {
-                return ((string)(this["form2TimeMouseClick"]));
-            }
-            set {
-                this["form2TimeMouseClick"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool form1SendKeyBack {
-            get {
-                return ((bool)(this["form1SendKeyBack"]));
-            }
-            set {
-                this["form1SendKeyBack"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool form2SendKeyBack {
-            get {
-                return ((bool)(this["form2SendKeyBack"]));
-            }
-            set {
-                this["form2SendKeyBack"] = value;
             }
         }
         
@@ -200,6 +56,18 @@ namespace autokey {
             }
             set {
                 this["FormJsonData"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string KeyBackData {
+            get {
+                return ((string)(this["KeyBackData"]));
+            }
+            set {
+                this["KeyBackData"] = value;
             }
         }
     }

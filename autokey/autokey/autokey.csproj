@@ -7,8 +7,8 @@
     <ProjectGuid>{D74CCF68-C9BD-4C72-B062-6EE50A429BFC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>autokey</RootNamespace>
-    <AssemblyName>autokey</AssemblyName>
+    <RootNamespace>EdgeTool</RootNamespace>
+    <AssemblyName>EdgeTool</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -90,6 +90,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="KeydataConvert.cs" />
     <Compile Include="MWin.cs" />
     <Compile Include="MWinUtil.cs" />
     <Compile Include="Program.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="auto.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using EdgeTool;
 using ServiceStack.Text;
 
 namespace autokey
@@ -17,10 +19,12 @@ namespace autokey
         {
             InitializeComponent();
             AbstractWork.LogText = log_rbtx;
+            numberForm_tbx.Text = auto.Default.NumberForm.ToString();
             InitPanel();
             InitHook();
             totalTime_tbx.Text = auto.Default.TotalTime;
-            numberForm_tbx.Text = auto.Default.NumberForm.ToString();
+            key_back_tbx.Text = auto.Default.KeyBackData;
+            this.KeyPreview = true;
         }
         private void InitHook()
         {
@@ -49,6 +53,7 @@ namespace autokey
             auto.Default.FormJsonData = jsonData;
             auto.Default.NumberForm = int.Parse(numberForm_tbx.Text);
             auto.Default.TotalTime = totalTime_tbx.Text;
+            auto.Default.KeyBackData = key_back_tbx.Text;
             auto.Default.Save();
             _keyhook.Uninstall();
         }
@@ -83,7 +88,7 @@ namespace autokey
             InitFormData();
             foreach (var autoFormData in this._formDatas)
             {
-                autoFormData.KeyBackToPreviousLocation = string.IsNullOrEmpty(key_back_tbx.Text) ? "%{SUBTRACT}" : key_back_tbx.Text;
+                autoFormData.KeyBackToPreviousLocation = string.IsNullOrEmpty(key_back_tbx.Text) ? "%{subtract}" : KeydataConvert.KeyDisplayToSendKey(key_back_tbx.Text);
                 if (autoFormData.Title.Length > 4 && autoFormData.Pid == IntPtr.Zero)
                 {
                     MessageBox.Show("Form :" + autoFormData.Title + " is not valid");
@@ -106,11 +111,6 @@ namespace autokey
 
         }
 
-
-
-
-
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -130,6 +130,10 @@ namespace autokey
             InitPanel();
         }
 
-
+        private void key_back_tbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            key_back_tbx.Text =KeydataConvert.KeyDisplay(e.KeyData);
+            e.Handled = true;
+        }
     }
 }

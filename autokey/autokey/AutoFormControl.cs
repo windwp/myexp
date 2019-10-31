@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppHook;
 using ManagedWinapi.Windows;
+using System.Text.RegularExpressions;
 
 namespace autokey
 {
@@ -20,6 +21,8 @@ namespace autokey
         public AutoFormControl()
         {
             InitializeComponent();
+            is_use_tab_cb.Checked = false;
+            tab_group_box.Visible = is_use_tab_cb.Checked;
         }
         public void doRefresh()
         {
@@ -51,20 +54,30 @@ namespace autokey
         {
             get
             {
-                var value = new AutoFormData();
-                value.IsEnable = isEnable.Checked;
-                value.Title = nameForm_tbx.Text;
-                value.TextKeyboard = text_tbx.Text;
-                value.MouseData = mousePos_tbx.Text;
-                value.TimeRun = Convert.ToInt32(timeRun_tbx.Text);
-                value.TimeMouseClick = Convert.ToInt32(timeMouseClick_tbx.Text);
-                value.IsSendBackKey = form1_cbx.Checked;
+                var autoFormSetting = new AutoFormData();
+                autoFormSetting.IsEnable = isEnable.Checked;
+                autoFormSetting.Title = nameForm_tbx.Text;
+                autoFormSetting.TextKeyboard = text_tbx.Text;
+                autoFormSetting.MouseData = mousePos_tbx.Text;
+                autoFormSetting.TimeRun = Convert.ToInt32(timeRun_tbx.Text);
+                autoFormSetting.TimeMouseClick = Convert.ToInt32(timeMouseClick_tbx.Text);
+                autoFormSetting.IsSendBackKey = form1_cbx.Checked;
+                autoFormSetting.TrimBeginLine = trim_begin_line_cb.Checked;
+                autoFormSetting.IsTab = is_use_tab_cb.Checked;
+                autoFormSetting.IsVsCode = is_vscode_cb.Checked;
+                autoFormSetting.IsChrome = is_chrome_cb.Checked;
+                autoFormSetting.TabRunTime = Convert.ToInt32(tab_run_time_txt.Text);
+                autoFormSetting.NumberTab = Convert.ToInt32(number_tab_txt.Text);
+                if (autoFormSetting.TrimBeginLine)
+                {
+                    autoFormSetting.TextKeyboard=  Regex.Replace(text_tbx.Text, "^ *", "", RegexOptions.Multiline);
+                }
                 var process = comboBox.SelectedItem as Process;
                 if (process != null)
                 {
-                    value.Pid = process.MainWindowHandle;
+                    autoFormSetting.Pid = process.MainWindowHandle;
                 }
-                return value;
+                return autoFormSetting;
 
             }
             set
@@ -77,6 +90,12 @@ namespace autokey
                 timeMouseClick_tbx.Text = value.TimeMouseClick.ToString();
                 form1_cbx.Checked = value.IsSendBackKey;
                 isEnable.Checked = value.IsEnable;
+                is_vscode_cb.Checked = value.IsVsCode;
+                is_chrome_cb.Checked = value.IsChrome;
+                number_tab_txt.Text = value.NumberTab.ToString();
+                tab_run_time_txt.Text = value.TabRunTime.ToString();
+                is_use_tab_cb.Checked = value.IsTab;
+                trim_begin_line_cb.Checked = value.TrimBeginLine;
             }
         }
 
@@ -134,6 +153,28 @@ namespace autokey
             if (process != null) MWin.ShowWindow(process.MainWindowHandle);
             this.FormData.MoveMouse();
 
+        }
+
+        private void is_vscode_cb_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (is_vscode_cb.Checked)
+            {
+                is_chrome_cb.Checked = false;
+            }
+        }
+
+        private void is_chrome_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (is_chrome_cb.Checked)
+            {
+                is_vscode_cb.Checked = false;
+            }
+        }
+
+        private void is_use_tab_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            tab_group_box.Visible = is_use_tab_cb.Checked;
         }
     }
 }

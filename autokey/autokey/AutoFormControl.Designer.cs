@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tab_group_box = new System.Windows.Forms.GroupBox();
+            this.number_tab_txt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.is_chrome_cb = new System.Windows.Forms.CheckBox();
+            this.is_vscode_cb = new System.Windows.Forms.CheckBox();
+            this.tab_run_time_txt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.is_use_tab_cb = new System.Windows.Forms.CheckBox();
+            this.trim_begin_line_cb = new System.Windows.Forms.CheckBox();
             this.focus_btn = new System.Windows.Forms.Button();
             this.isEnable = new System.Windows.Forms.CheckBox();
             this.form1_cbx = new System.Windows.Forms.CheckBox();
@@ -43,12 +52,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nameForm_tbx = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
+            this.tab_group_box.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.tab_group_box);
+            this.panel1.Controls.Add(this.is_use_tab_cb);
+            this.panel1.Controls.Add(this.trim_begin_line_cb);
             this.panel1.Controls.Add(this.focus_btn);
             this.panel1.Controls.Add(this.isEnable);
             this.panel1.Controls.Add(this.form1_cbx);
@@ -67,6 +81,106 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(358, 545);
             this.panel1.TabIndex = 1;
+            // 
+            // tab_group_box
+            // 
+            this.tab_group_box.Controls.Add(this.number_tab_txt);
+            this.tab_group_box.Controls.Add(this.label3);
+            this.tab_group_box.Controls.Add(this.is_chrome_cb);
+            this.tab_group_box.Controls.Add(this.is_vscode_cb);
+            this.tab_group_box.Controls.Add(this.tab_run_time_txt);
+            this.tab_group_box.Controls.Add(this.label4);
+            this.tab_group_box.Location = new System.Drawing.Point(6, 218);
+            this.tab_group_box.Name = "tab_group_box";
+            this.tab_group_box.Size = new System.Drawing.Size(336, 100);
+            this.tab_group_box.TabIndex = 9;
+            this.tab_group_box.TabStop = false;
+            this.tab_group_box.Text = "Tab Setting";
+            // 
+            // number_tab_txt
+            // 
+            this.number_tab_txt.Location = new System.Drawing.Point(84, 19);
+            this.number_tab_txt.Name = "number_tab_txt";
+            this.number_tab_txt.Size = new System.Drawing.Size(67, 20);
+            this.number_tab_txt.TabIndex = 5;
+            this.number_tab_txt.Text = "2";
+            this.number_tab_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "TabNumber";
+            // 
+            // is_chrome_cb
+            // 
+            this.is_chrome_cb.AutoSize = true;
+            this.is_chrome_cb.BackColor = System.Drawing.Color.Transparent;
+            this.is_chrome_cb.Location = new System.Drawing.Point(116, 44);
+            this.is_chrome_cb.Name = "is_chrome_cb";
+            this.is_chrome_cb.Size = new System.Drawing.Size(69, 17);
+            this.is_chrome_cb.TabIndex = 8;
+            this.is_chrome_cb.Text = "isChrome";
+            this.is_chrome_cb.UseVisualStyleBackColor = false;
+            this.is_chrome_cb.CheckedChanged += new System.EventHandler(this.is_chrome_cb_CheckedChanged);
+            // 
+            // is_vscode_cb
+            // 
+            this.is_vscode_cb.AutoSize = true;
+            this.is_vscode_cb.BackColor = System.Drawing.Color.Transparent;
+            this.is_vscode_cb.Location = new System.Drawing.Point(13, 44);
+            this.is_vscode_cb.Name = "is_vscode_cb";
+            this.is_vscode_cb.Size = new System.Drawing.Size(97, 17);
+            this.is_vscode_cb.TabIndex = 8;
+            this.is_vscode_cb.Text = "isVsCodeEditor";
+            this.is_vscode_cb.UseVisualStyleBackColor = false;
+            this.is_vscode_cb.CheckedChanged += new System.EventHandler(this.is_vscode_cb_CheckedChanged);
+            // 
+            // tab_run_time_txt
+            // 
+            this.tab_run_time_txt.Location = new System.Drawing.Point(263, 19);
+            this.tab_run_time_txt.Name = "tab_run_time_txt";
+            this.tab_run_time_txt.Size = new System.Drawing.Size(67, 20);
+            this.tab_run_time_txt.TabIndex = 5;
+            this.tab_run_time_txt.Text = "3";
+            this.tab_run_time_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(171, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Tab Run Time(s)";
+            // 
+            // is_use_tab_cb
+            // 
+            this.is_use_tab_cb.AutoSize = true;
+            this.is_use_tab_cb.BackColor = System.Drawing.Color.Transparent;
+            this.is_use_tab_cb.Location = new System.Drawing.Point(12, 193);
+            this.is_use_tab_cb.Name = "is_use_tab_cb";
+            this.is_use_tab_cb.Size = new System.Drawing.Size(71, 17);
+            this.is_use_tab_cb.TabIndex = 8;
+            this.is_use_tab_cb.Text = "isUseTab";
+            this.is_use_tab_cb.UseVisualStyleBackColor = false;
+            this.is_use_tab_cb.CheckedChanged += new System.EventHandler(this.is_use_tab_cb_CheckedChanged);
+            // 
+            // trim_begin_line_cb
+            // 
+            this.trim_begin_line_cb.AutoSize = true;
+            this.trim_begin_line_cb.BackColor = System.Drawing.Color.Transparent;
+            this.trim_begin_line_cb.Checked = true;
+            this.trim_begin_line_cb.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.trim_begin_line_cb.Location = new System.Drawing.Point(8, 161);
+            this.trim_begin_line_cb.Name = "trim_begin_line_cb";
+            this.trim_begin_line_cb.Size = new System.Drawing.Size(118, 17);
+            this.trim_begin_line_cb.TabIndex = 8;
+            this.trim_begin_line_cb.Text = "Trim Text begin line";
+            this.trim_begin_line_cb.UseVisualStyleBackColor = false;
             // 
             // focus_btn
             // 
@@ -108,6 +222,7 @@
             this.timeMouseClick_tbx.Size = new System.Drawing.Size(67, 20);
             this.timeMouseClick_tbx.TabIndex = 5;
             this.timeMouseClick_tbx.Text = "5";
+            this.timeMouseClick_tbx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // timeRun_tbx
             // 
@@ -115,7 +230,8 @@
             this.timeRun_tbx.Name = "timeRun_tbx";
             this.timeRun_tbx.Size = new System.Drawing.Size(67, 20);
             this.timeRun_tbx.TabIndex = 5;
-            this.timeRun_tbx.Text = "1";
+            this.timeRun_tbx.Text = "120";
+            this.timeRun_tbx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // mousePos_tbx
             // 
@@ -138,16 +254,16 @@
             // text_tbx
             // 
             this.text_tbx.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.text_tbx.Location = new System.Drawing.Point(0, 222);
+            this.text_tbx.Location = new System.Drawing.Point(0, 379);
             this.text_tbx.Name = "text_tbx";
-            this.text_tbx.Size = new System.Drawing.Size(354, 319);
+            this.text_tbx.Size = new System.Drawing.Size(354, 162);
             this.text_tbx.TabIndex = 3;
             this.text_tbx.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 206);
+            this.label2.Location = new System.Drawing.Point(3, 363);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 2;
@@ -206,6 +322,8 @@
             this.Size = new System.Drawing.Size(364, 551);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tab_group_box.ResumeLayout(false);
+            this.tab_group_box.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -227,5 +345,15 @@
         private System.Windows.Forms.TextBox nameForm_tbx;
         private System.Windows.Forms.CheckBox isEnable;
         private System.Windows.Forms.Button focus_btn;
+        private System.Windows.Forms.CheckBox trim_begin_line_cb;
+        private System.Windows.Forms.CheckBox is_vscode_cb;
+        private System.Windows.Forms.CheckBox is_chrome_cb;
+        private System.Windows.Forms.TextBox number_tab_txt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox is_use_tab_cb;
+        private System.Windows.Forms.GroupBox tab_group_box;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox tab_run_time_txt;
+        private System.Windows.Forms.Label label4;
     }
 }

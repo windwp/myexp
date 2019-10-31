@@ -1,43 +1,7 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="autokey" GeneratedClassName="auto">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EdgeTool" GeneratedClassName="auto">
   <Profiles />
   <Settings>
-    <Setting Name="form1Key" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="form2Key" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="form1Mouse" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="form2Mouse" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="form1TimeRun" Type="System.String" Scope="User">
-      <Value Profile="(Default)">60</Value>
-    </Setting>
-    <Setting Name="form2TimeRun" Type="System.String" Scope="User">
-      <Value Profile="(Default)">360</Value>
-    </Setting>
-    <Setting Name="form1TimeWait" Type="System.String" Scope="User">
-      <Value Profile="(Default)">360</Value>
-    </Setting>
-    <Setting Name="form2TimeWait" Type="System.String" Scope="User">
-      <Value Profile="(Default)">60</Value>
-    </Setting>
-    <Setting Name="form1TimeMouseClick" Type="System.String" Scope="User">
-      <Value Profile="(Default)">5</Value>
-    </Setting>
-    <Setting Name="form2TimeMouseClick" Type="System.String" Scope="User">
-      <Value Profile="(Default)">120</Value>
-    </Setting>
-    <Setting Name="form1SendKeyBack" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="form2SendKeyBack" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="TotalTime" Type="System.String" Scope="User">
       <Value Profile="(Default)">120</Value>
     </Setting>
@@ -45,6 +9,9 @@
       <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="FormJsonData" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="KeyBackData" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

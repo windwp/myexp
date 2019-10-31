@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.start_btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.key_back_tbx = new System.Windows.Forms.TextBox();
             this.stop_btn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.totalTime_lb = new System.Windows.Forms.Label();
@@ -39,8 +42,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.key_back_tbx = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +72,24 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Config";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Key back to previous location in editor";
+            // 
+            // key_back_tbx
+            // 
+            this.key_back_tbx.Location = new System.Drawing.Point(217, 91);
+            this.key_back_tbx.Name = "key_back_tbx";
+            this.key_back_tbx.Size = new System.Drawing.Size(126, 20);
+            this.key_back_tbx.TabIndex = 8;
+            this.key_back_tbx.Text = "Alt+Left";
+            this.key_back_tbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_back_tbx_KeyDown);
             // 
             // stop_btn
             // 
@@ -159,23 +178,6 @@
             this.label1.Text = "*F3 for stop running\r\n*F10 for choose mouse position\r\n  (focus on FormMousePos fi" +
     "rst then press F10)\r\n";
             // 
-            // key_back_tbx
-            // 
-            this.key_back_tbx.Location = new System.Drawing.Point(217, 91);
-            this.key_back_tbx.Name = "key_back_tbx";
-            this.key_back_tbx.Size = new System.Drawing.Size(126, 20);
-            this.key_back_tbx.TabIndex = 8;
-            this.key_back_tbx.Text = "%{SUBTRACT}";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Key back to previous location in editor";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,9 +186,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Edge ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.groupBox1.ResumeLayout(false);
