@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing.Design;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using AppHook;
+﻿using AppHook;
 using ManagedWinapi.Windows;
+using System;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace autokey
 {
@@ -61,7 +53,7 @@ namespace autokey
                 autoFormSetting.MouseData = mousePos_tbx.Text;
                 autoFormSetting.TimeRun = Convert.ToInt32(timeRun_tbx.Text);
                 autoFormSetting.TimeMouseClick = Convert.ToInt32(timeMouseClick_tbx.Text);
-                autoFormSetting.IsSendBackKey = form1_cbx.Checked;
+                autoFormSetting.IsSendBackKey = is_send_back_key_cbx.Checked;
                 autoFormSetting.TrimBeginLine = trim_begin_line_cb.Checked;
                 autoFormSetting.IsTab = is_use_tab_cb.Checked;
                 autoFormSetting.IsVsCode = is_vscode_cb.Checked;
@@ -70,7 +62,7 @@ namespace autokey
                 autoFormSetting.NumberTab = Convert.ToInt32(number_tab_txt.Text);
                 if (autoFormSetting.TrimBeginLine)
                 {
-                    autoFormSetting.TextKeyboard=  Regex.Replace(text_tbx.Text, "^ *", "", RegexOptions.Multiline);
+                    autoFormSetting.TextKeyboard = Regex.Replace(text_tbx.Text, "^ *", "", RegexOptions.Multiline);
                 }
                 var process = comboBox.SelectedItem as Process;
                 if (process != null)
@@ -83,12 +75,13 @@ namespace autokey
             set
             {
                 if (value == null) return;
+                isEnable.Checked = value.IsEnable;
                 nameForm_tbx.Text = value.Title;
                 text_tbx.Text = value.TextKeyboard;
                 mousePos_tbx.Text = value.MouseData;
                 timeRun_tbx.Text = value.TimeRun.ToString();
                 timeMouseClick_tbx.Text = value.TimeMouseClick.ToString();
-                form1_cbx.Checked = value.IsSendBackKey;
+                is_send_back_key_cbx.Checked = value.IsSendBackKey;
                 isEnable.Checked = value.IsEnable;
                 is_vscode_cb.Checked = value.IsVsCode;
                 is_chrome_cb.Checked = value.IsChrome;
@@ -111,7 +104,7 @@ namespace autokey
             mousePos_tbx.Enabled = isEnable.Checked;
             timeRun_tbx.Enabled = isEnable.Checked;
             timeMouseClick_tbx.Enabled = isEnable.Checked;
-            form1_cbx.Enabled = isEnable.Checked;
+            is_send_back_key_cbx.Enabled = isEnable.Checked;
             comboBox.Enabled = isEnable.Checked;
         }
 
@@ -144,7 +137,7 @@ namespace autokey
                     Thread.Sleep(100);
                 }
             }
-            
+
         }
 
         private void TestMouseMove_btn_Click(object sender, EventArgs e)
@@ -161,6 +154,7 @@ namespace autokey
             if (is_vscode_cb.Checked)
             {
                 is_chrome_cb.Checked = false;
+                is_send_back_key_cbx.Checked = true;
             }
         }
 
@@ -169,6 +163,7 @@ namespace autokey
             if (is_chrome_cb.Checked)
             {
                 is_vscode_cb.Checked = false;
+                is_send_back_key_cbx.Checked = false;
             }
         }
 

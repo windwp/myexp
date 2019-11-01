@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
+using AppHook;
 using EdgeTool;
 using ServiceStack.Text;
 
@@ -86,7 +88,8 @@ namespace autokey
         private void start_btn_Click(object sender, EventArgs e)
         {
             InitFormData();
-            foreach (var autoFormData in this._formDatas)
+            var formEnable = this._formDatas.Where(o => o.IsEnable).ToArray();
+            foreach (var autoFormData in formEnable)
             {
                 autoFormData.KeyBackToPreviousLocation = string.IsNullOrEmpty(key_back_tbx.Text) ? "%{subtract}" : KeydataConvert.KeyDisplayToSendKey(key_back_tbx.Text);
                 if (autoFormData.Title.Length > 4 && autoFormData.Pid == IntPtr.Zero)
@@ -100,14 +103,14 @@ namespace autokey
                 _work.Stop();
             }
 
-            _work = new AutoWork(this._formDatas, Convert.ToInt32(totalTime_tbx.Text));
+            _work = new AutoWork(formEnable, Convert.ToInt32(totalTime_tbx.Text));
             _work.Start();
 
         }
 
         private void InitFormData()
         {
-            this._formDatas = _formControls.Select((item) => item.FormData).ToArray().Where(o => o.IsEnable).ToArray();
+            this._formDatas = _formControls.Select((item) => item.FormData).ToArray();
 
         }
 
@@ -134,6 +137,27 @@ namespace autokey
         {
             key_back_tbx.Text =KeydataConvert.KeyDisplay(e.KeyData);
             e.Handled = true;
+        }
+
+        private void backto_previous_test_btn_Click(object sender, EventArgs e)
+        {
+
+            InitFormData();
+            var formEnable = this._formDatas.Where(o => o.IsEnable).ToArray();
+            foreach (var autoFormData in formEnable)
+            {
+                autoFormData.KeyBackToPreviousLocation = string.IsNullOrEmpty(key_back_tbx.Text) ? "%{subtract}" : KeydataConvert.KeyDisplayToSendKey(key_back_tbx.Text);
+                if (autoFormData.Title.Length > 4 && autoFormData.Pid == IntPtr.Zero)
+                {
+                    MessageBox.Show("Form :" + autoFormData.Title + " is not valid");
+                    return;
+                }
+            }
+            var formData = formEnable[0];
+            MWin.ShowWindow(formData.Pid);
+            Thread.Sleep(300);
+            SendKeys.SendWait(formData.KeyBackToPreviousLocation);
+
         }
     }
 }

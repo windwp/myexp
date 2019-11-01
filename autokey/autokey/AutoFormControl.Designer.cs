@@ -40,7 +40,7 @@
             this.trim_begin_line_cb = new System.Windows.Forms.CheckBox();
             this.focus_btn = new System.Windows.Forms.Button();
             this.isEnable = new System.Windows.Forms.CheckBox();
-            this.form1_cbx = new System.Windows.Forms.CheckBox();
+            this.is_send_back_key_cbx = new System.Windows.Forms.CheckBox();
             this.timeMouseClick_tbx = new System.Windows.Forms.TextBox();
             this.timeRun_tbx = new System.Windows.Forms.TextBox();
             this.mousePos_tbx = new System.Windows.Forms.TextBox();
@@ -65,7 +65,7 @@
             this.panel1.Controls.Add(this.trim_begin_line_cb);
             this.panel1.Controls.Add(this.focus_btn);
             this.panel1.Controls.Add(this.isEnable);
-            this.panel1.Controls.Add(this.form1_cbx);
+            this.panel1.Controls.Add(this.is_send_back_key_cbx);
             this.panel1.Controls.Add(this.timeMouseClick_tbx);
             this.panel1.Controls.Add(this.timeRun_tbx);
             this.panel1.Controls.Add(this.mousePos_tbx);
@@ -90,9 +90,9 @@
             this.tab_group_box.Controls.Add(this.is_vscode_cb);
             this.tab_group_box.Controls.Add(this.tab_run_time_txt);
             this.tab_group_box.Controls.Add(this.label4);
-            this.tab_group_box.Location = new System.Drawing.Point(6, 218);
+            this.tab_group_box.Location = new System.Drawing.Point(6, 215);
             this.tab_group_box.Name = "tab_group_box";
-            this.tab_group_box.Size = new System.Drawing.Size(336, 100);
+            this.tab_group_box.Size = new System.Drawing.Size(336, 77);
             this.tab_group_box.TabIndex = 9;
             this.tab_group_box.TabStop = false;
             this.tab_group_box.Text = "Tab Setting";
@@ -145,7 +145,7 @@
             this.tab_run_time_txt.Name = "tab_run_time_txt";
             this.tab_run_time_txt.Size = new System.Drawing.Size(67, 20);
             this.tab_run_time_txt.TabIndex = 5;
-            this.tab_run_time_txt.Text = "3";
+            this.tab_run_time_txt.Text = "15";
             this.tab_run_time_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
@@ -161,7 +161,7 @@
             // 
             this.is_use_tab_cb.AutoSize = true;
             this.is_use_tab_cb.BackColor = System.Drawing.Color.Transparent;
-            this.is_use_tab_cb.Location = new System.Drawing.Point(12, 193);
+            this.is_use_tab_cb.Location = new System.Drawing.Point(6, 192);
             this.is_use_tab_cb.Name = "is_use_tab_cb";
             this.is_use_tab_cb.Size = new System.Drawing.Size(71, 17);
             this.is_use_tab_cb.TabIndex = 8;
@@ -175,7 +175,7 @@
             this.trim_begin_line_cb.BackColor = System.Drawing.Color.Transparent;
             this.trim_begin_line_cb.Checked = true;
             this.trim_begin_line_cb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.trim_begin_line_cb.Location = new System.Drawing.Point(8, 161);
+            this.trim_begin_line_cb.Location = new System.Drawing.Point(6, 169);
             this.trim_begin_line_cb.Name = "trim_begin_line_cb";
             this.trim_begin_line_cb.Size = new System.Drawing.Size(118, 17);
             this.trim_begin_line_cb.TabIndex = 8;
@@ -205,19 +205,19 @@
             this.isEnable.UseVisualStyleBackColor = true;
             this.isEnable.CheckedChanged += new System.EventHandler(this.isEnable_CheckedChanged);
             // 
-            // form1_cbx
+            // is_send_back_key_cbx
             // 
-            this.form1_cbx.AutoSize = true;
-            this.form1_cbx.Location = new System.Drawing.Point(114, 106);
-            this.form1_cbx.Name = "form1_cbx";
-            this.form1_cbx.Size = new System.Drawing.Size(179, 17);
-            this.form1_cbx.TabIndex = 6;
-            this.form1_cbx.Text = "send back key after mouse click";
-            this.form1_cbx.UseVisualStyleBackColor = true;
+            this.is_send_back_key_cbx.AutoSize = true;
+            this.is_send_back_key_cbx.Location = new System.Drawing.Point(83, 192);
+            this.is_send_back_key_cbx.Name = "is_send_back_key_cbx";
+            this.is_send_back_key_cbx.Size = new System.Drawing.Size(179, 17);
+            this.is_send_back_key_cbx.TabIndex = 6;
+            this.is_send_back_key_cbx.Text = "send back key after mouse click";
+            this.is_send_back_key_cbx.UseVisualStyleBackColor = true;
             // 
             // timeMouseClick_tbx
             // 
-            this.timeMouseClick_tbx.Location = new System.Drawing.Point(275, 181);
+            this.timeMouseClick_tbx.Location = new System.Drawing.Point(281, 173);
             this.timeMouseClick_tbx.Name = "timeMouseClick_tbx";
             this.timeMouseClick_tbx.Size = new System.Drawing.Size(67, 20);
             this.timeMouseClick_tbx.TabIndex = 5;
@@ -226,7 +226,7 @@
             // 
             // timeRun_tbx
             // 
-            this.timeRun_tbx.Location = new System.Drawing.Point(275, 155);
+            this.timeRun_tbx.Location = new System.Drawing.Point(281, 147);
             this.timeRun_tbx.Name = "timeRun_tbx";
             this.timeRun_tbx.Size = new System.Drawing.Size(67, 20);
             this.timeRun_tbx.TabIndex = 5;
@@ -235,7 +235,7 @@
             // 
             // mousePos_tbx
             // 
-            this.mousePos_tbx.Location = new System.Drawing.Point(114, 129);
+            this.mousePos_tbx.Location = new System.Drawing.Point(114, 112);
             this.mousePos_tbx.Name = "mousePos_tbx";
             this.mousePos_tbx.Size = new System.Drawing.Size(237, 20);
             this.mousePos_tbx.TabIndex = 5;
@@ -254,16 +254,16 @@
             // text_tbx
             // 
             this.text_tbx.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.text_tbx.Location = new System.Drawing.Point(0, 379);
+            this.text_tbx.Location = new System.Drawing.Point(0, 372);
             this.text_tbx.Name = "text_tbx";
-            this.text_tbx.Size = new System.Drawing.Size(354, 162);
+            this.text_tbx.Size = new System.Drawing.Size(354, 169);
             this.text_tbx.TabIndex = 3;
             this.text_tbx.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 363);
+            this.label2.Location = new System.Drawing.Point(3, 356);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 2;
@@ -272,7 +272,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(169, 184);
+            this.label11.Location = new System.Drawing.Point(175, 176);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(96, 13);
             this.label11.TabIndex = 2;
@@ -281,7 +281,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(169, 158);
+            this.label7.Location = new System.Drawing.Point(175, 150);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 2;
@@ -290,7 +290,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 132);
+            this.label5.Location = new System.Drawing.Point(9, 112);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 2;
@@ -331,7 +331,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox form1_cbx;
+        private System.Windows.Forms.CheckBox is_send_back_key_cbx;
         private System.Windows.Forms.TextBox timeMouseClick_tbx;
         private System.Windows.Forms.TextBox timeRun_tbx;
         private System.Windows.Forms.TextBox mousePos_tbx;

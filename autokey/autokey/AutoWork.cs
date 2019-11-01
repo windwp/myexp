@@ -1,14 +1,11 @@
-﻿using System;
+﻿using AppHook;
+using ManagedWinapi.Windows;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AppHook;
-using ManagedWinapi.Windows;
 
 namespace autokey
 {
@@ -54,10 +51,11 @@ namespace autokey
                         {
                             if (formData.NextTabTime < UnixTimeNow())
                             {
-                                if (formData.NextTabTime == 0||formData.CurrentTabIndex >= formData.NumberTab) { 
-                                    formData.CurrentTabIndex = -1; 
-                                }
-                                formData.CurrentTabIndex += 1;
+                                //if (formData.NextTabTime == 0||formData.CurrentTabIndex >= formData.NumberTab) { 
+                                //    formData.CurrentTabIndex = -1; 
+                                //}
+                                //formData.CurrentTabIndex += 1;
+                                formData.CurrentTabIndex = _random.Next(0, formData.NumberTab);
                                 formData.NextTabTime = UnixTimeNow() + formData.TabRunTime;
                                 LogInfo("Switch Tab : " + formData.CurrentTabIndex);
                                 if (formData.IsChrome)
@@ -253,7 +251,7 @@ namespace autokey
                 if (IsSendBackKey)
                 {
                     Thread.Sleep(600);
-                    //                    https://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys(v=vs.110).aspx
+                    //https://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys(v=vs.110).aspx
                     SendKeys.SendWait(KeyBackToPreviousLocation);
                 }
             }

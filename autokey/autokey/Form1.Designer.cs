@@ -42,6 +42,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.backto_previous_test_btn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -58,8 +59,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.key_back_tbx);
             this.groupBox1.Controls.Add(this.start_btn);
             this.groupBox1.Controls.Add(this.stop_btn);
             this.groupBox1.Controls.Add(this.label13);
@@ -76,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 94);
+            this.label2.Location = new System.Drawing.Point(6, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 13);
             this.label2.TabIndex = 9;
@@ -84,9 +83,9 @@
             // 
             // key_back_tbx
             // 
-            this.key_back_tbx.Location = new System.Drawing.Point(217, 91);
+            this.key_back_tbx.Location = new System.Drawing.Point(203, 87);
             this.key_back_tbx.Name = "key_back_tbx";
-            this.key_back_tbx.Size = new System.Drawing.Size(126, 20);
+            this.key_back_tbx.Size = new System.Drawing.Size(89, 20);
             this.key_back_tbx.TabIndex = 8;
             this.key_back_tbx.Text = "Alt+Left";
             this.key_back_tbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_back_tbx_KeyDown);
@@ -159,8 +158,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.key_back_tbx);
             this.groupBox2.Controls.Add(this.log_rbtx);
+            this.groupBox2.Controls.Add(this.backto_previous_test_btn);
             this.groupBox2.Location = new System.Drawing.Point(418, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(809, 129);
@@ -177,6 +179,16 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "*F3 for stop running\r\n*F10 for choose mouse position\r\n  (focus on FormMousePos fi" +
     "rst then press F10)\r\n";
+            // 
+            // backto_previous_test_btn
+            // 
+            this.backto_previous_test_btn.Location = new System.Drawing.Point(298, 84);
+            this.backto_previous_test_btn.Name = "backto_previous_test_btn";
+            this.backto_previous_test_btn.Size = new System.Drawing.Size(75, 23);
+            this.backto_previous_test_btn.TabIndex = 1;
+            this.backto_previous_test_btn.Text = "Test";
+            this.backto_previous_test_btn.UseVisualStyleBackColor = true;
+            this.backto_previous_test_btn.Click += new System.EventHandler(this.backto_previous_test_btn_Click);
             // 
             // Form1
             // 
@@ -214,6 +226,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox key_back_tbx;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button backto_previous_test_btn;
     }
 }
 
